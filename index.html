@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator</title>
+    </head>
+    <body>
+        <script>
+            let screen = document.createElement("div");
+            screen.style.width = "100%"
+            screen.style.height = "100vh";
+            screen.style.display = "flex";
+            screen.style.justifyContent = "center";
+            screen.style.alignItems = "center";
+            document.body.appendChild(screen);
+            
+            let calculator = document.createElement("div");
+            calculator.style.width = "600px"
+            calculator.style.height = "600px";
+            calculator.style.display = "flex";
+            calculator.style.flexWrap = "wrap";
+            calculator.style.rowGap = "";
+            calculator.style.justifyContent = "center";
+            calculator.style.backgroundColor ="#f5b5d9"
+            screen.appendChild(calculator);
+
+            let row1 = document.createElement("div");
+            row1.style.width = "508px";
+            row1.style.height = "80px";
+            row1.style.display ="flex";
+            row1.style.flexWrap = "wrap";
+            row1.style.marginTop = "40px";
+            row1.style.backgroundColor = "#c05fde";
+            calculator.appendChild(row1);
+
+            let row2 = document.createElement("div");
+            row2.style.width = "508px";
+            row2.style.height = "80px";
+            row2.style.display ="flex";
+            row2.style.flexWrap = "wrap";
+            row2.style.marginTop = "10px";
+            row2.style.backgroundColor = "#c05fde";
+            calculator.appendChild(row2);
+
+            let row3 = document.createElement("div");
+            row3.style.width = "508px";
+            row3.style.height = "80px";
+            row3.style.display ="flex";
+            row3.style.flexWrap = "wrap";
+            row3.style.backgroundColor = "#c05fde";
+            calculator.appendChild(row3);
+
+            let row4 = document.createElement("div");
+            row4.style.width = "508px";
+            row4.style.height = "80px";
+            row4.style.display ="flex";
+            row4.style.flexWrap = "wrap";
+            row4.style.backgroundColor = "#c05fde";
+            calculator.appendChild(row4);
+
+            let row5 = document.createElement("div");
+            row5.style.width = "508px";
+            row5.style.height = "80px";
+            row5.style.display ="flex";
+            row5.style.flexWrap = "wrap";
+            row5.style.backgroundColor = "#c05fde";
+            calculator.appendChild(row5);
+
+
+            let row6 = document.createElement("div");
+            row6.style.width = "508px";
+            row6.style.height = "80px";
+            row6.style.display ="flex";
+            row6.style.flexWrap = "wrap";
+            row6.style.backgroundColor = "#c05fde";
+            calculator.appendChild(row6);
+
+            let clear = document.createElement("div");
+            clear.style.width = "125px";
+            clear.style.height = "78px";
+            clear.style.display = "flex";
+            clear.style.margin = "1px";
+            clear.style.backgroundColor = "#db65d3";
+            clear.innerText = "C";
+            clear.style.justifyContent = "center";
+            clear.style.alignItems = "center";
+            row2.appendChild(clear);
+            clear.onclick = function(){
+              row1.replaceChildren();
+            }
+
+            let back = document.createElement("div");
+            back.style.width = "125px";
+            back.style.height = "78px";
+            back.style.display = "flex";
+            back.style.margin = "1px";
+            back.innerText = "<-";
+            back.style.justifyContent = "center";
+            back.style.alignItems = "center";
+            back.style.fontSize = "1em";
+            back.style.backgroundColor = "#db65d3";
+            row2.appendChild(back);
+            back.onclick = function(){
+              let remove = row1.innerText;
+              remove = remove.slice(0,-1);
+              row1.replaceChildren();
+              var input = document.createTextNode(remove);
+              row1.appendChild(input);
+            }
+
+            let dot = document.createElement("div");
+            dot.style.width = "125px";
+            dot.style.height = "78px";
+            dot.style.display = "flex";
+            dot.style.margin = "1px";
+            dot.innerText = ".";
+            dot.style.justifyContent = "center";
+            dot.style.alignItems = "center";
+            dot.style.fontSize = "2em";
+            dot.style.backgroundColor = "#db65d3";
+            row2.appendChild(dot);
+            dot.onclick = function(){
+              var valueDot = document.createTextNode(".");
+              row1.appendChild(valueDot);
+            }
+
+            let multiply = document.createElement("div");
+            multiply.style.width = "125px";
+            multiply.style.height = "78px";
+            multiply.style.display = "flex";
+            multiply.style.margin = "1px";
+            multiply.innerText = "X";
+            multiply.style.justifyContent = "center";
+            multiply.style.alignItems = "center";
+            multiply.style.backgroundColor = "#db65d3";
+            row2.appendChild(multiply);
+            multiply.onclick = function(){
+              var valueMul = document.createTextNode("*");
+              row1.appendChild(valueMul);
+            }
+
+            let seven = document.createElement("div");
+            seven.style.width = "125px";
+            seven.style.height = "78px";
+            seven.style.display = "flex";
+            seven.style.margin = "1px";
+            seven.innerText = "7";
+            seven.style.justifyContent = "center";
+            seven.style.alignItems = "center";
+            seven.style.backgroundColor = "#db65d3";
+            row3.appendChild(seven);
+            seven.onclick = function(){
+             var value7 = document.createTextNode("7");
+             row1.appendChild(value7);
+            }
+
+            let eight = document.createElement("div");
+            eight.style.width = "125px";
+            eight.style.height = "78px";
+            eight.style.display = "flex";
+            eight.style.margin = "1px";
+            eight.innerText = "8";
+            eight.style.justifyContent = "center";
+            eight.style.alignItems = "center";
+            eight.style.backgroundColor = "#db65d3";
+            row3.appendChild(eight);
+            eight.onclick = function(){
+              var value8 = document.createTextNode("8");
+              row1.appendChild(value8);
+            }
+
+            let nine = document.createElement("div");
+            nine.style.width = "125px";
+            nine.style.height = "78px";
+            nine.style.display = "flex";
+            nine.style.margin = "1px";
+            nine.innerText = "9";
+            nine.style.justifyContent = "center";
+            nine.style.alignItems = "center";
+            nine.style.backgroundColor = "#db65d3";
+            row3.appendChild(nine);
+            nine.onclick = function(){
+              var value9 = document.createTextNode("9");
+              row1.appendChild(value9);
+            }
+
+            let divide = document.createElement("div");
+            divide.style.width = "125px";
+            divide.style.height = "78px";
+            divide.style.display = "flex";
+            divide.style.margin = "1px";
+            divide.innerText = "/";
+            divide.style.justifyContent = "center";
+            divide.style.alignItems = "center";
+            divide.style.backgroundColor = "#db65d3";
+            row3.appendChild(divide);
+            divide.onclick = function(){
+              var valueDiv = document.createTextNode("/");
+              row1.appendChild(valueDiv);
+            }
+
+            let four = document.createElement("div");
+            four.style.width = "125px";
+            four.style.height = "78px";
+            four.style.display = "flex";
+            four.style.margin = "1px";
+            four.innerText = "4";
+            four.style.justifyContent = "center";
+            four.style.alignItems = "center";
+            four.style.backgroundColor = "#db65d3";
+            row4.appendChild(four);
+            four.onclick = function(){
+              var value4 = document.createTextNode("4");
+              row1.appendChild(value4);
+            }
+
+            let five = document.createElement("div");
+            five.style.width = "125px";
+            five.style.height = "78px";
+            five.style.display = "flex";
+            five.style.margin = "1px";
+            five.innerText = "5";
+            five.style.justifyContent ="center";
+            five.style.alignItems = "center";
+            five.style.backgroundColor = "#db65d3";
+            row4.appendChild(five);
+            five.onclick = function(){
+              var value5 = document.createTextNode("5");
+              row1.appendChild(value5);
+            }
+
+            let six = document.createElement("div");
+            six.style.width = "125px";
+            six.style.height = "78px";
+            six.style.display = "flex";
+            six.style.margin = "1px";
+            six.innerText = "6";
+            six.style.justifyContent = "center";
+            six.style.alignItems = "center";
+            six.style.backgroundColor = "#db65d3";
+            row4.appendChild(six);
+            six.onclick = function(){
+              var value6 = document.createTextNode("6");
+              row1.appendChild(value6);
+            }
+
+            let sub = document.createElement("div");
+            sub.style.width = "125px";
+            sub.style.height = "78px";
+            sub.style.display = "flex";
+            sub.style.margin = "1px";
+            sub.innerText = "-";
+            sub.style.justifyContent ="center";
+            sub.style.alignItems ="center";
+            sub.style.backgroundColor = "#db65d3";
+            row4.appendChild(sub);
+            sub.onclick = function(){
+              var valueSub = document.createTextNode("-");
+              row1.appendChild(valueSub);
+            }
+
+            let one = document.createElement("div");
+            one.style.width = "125px";
+            one.style.height = "78px";
+            one.style.display = "flex";
+            one.style.margin = "1px";
+            one.innerText = "1";
+            one.style.justifyContent = "center";
+            one.style.alignItems ="center";
+            one.style.backgroundColor = "#db65d3";
+            row5.appendChild(one);
+            one.onclick = function(){
+              var value1 = document.createTextNode("1");
+              row1.appendChild(value1);
+            }
+
+            let two = document.createElement("div");
+            two.style.width = "125px";
+            two.style.height = "78px";
+            two.style.display = "flex";
+            two.style.margin = "1px";
+            two.innerText = "2";
+            two.style.justifyContent = "center";
+            two.style.alignItems = "center"
+            two.style.backgroundColor = "#db65d3";
+            row5.appendChild(two);
+            two.onclick = function(){
+              var value2 = document.createTextNode("2");
+              row1.appendChild(value2);
+            }
+
+            let three = document.createElement("div");
+            three.style.width = "125px";
+            three.style.height = "78px";
+            three.style.display = "flex";
+            three.style.margin = "1px";
+            three.innerText = "3";
+            three.style.justifyContent = "center";
+            three.style.alignItems = "center";
+            three.style.backgroundColor = "#db65d3";
+            row5.appendChild(three);
+            three.onclick = function(){
+              var value3 = document.createTextNode("3");
+              row1.appendChild(value3);
+            }
+
+            let add = document.createElement("div");
+            add.style.width = "125px";
+            add.style.height = "78px";
+            add.style.display = "flex";
+            add.style.margin = "1px";
+            add.innerText = "+";
+            add.style.justifyContent = "center";
+            add.style.alignItems = "center";
+            add.style.backgroundColor = "#db65d3";
+            row5.appendChild(add);
+            add.onclick = function(){
+              var valueAdd = document.createTextNode("+");
+              row1.appendChild(valueAdd);
+            }
+
+            let zero = document.createElement("div");
+            zero.style.width = "125px";
+            zero.style.height = "78px";
+            zero.style.display = "flex";
+            zero.style.margin = "1px";
+            zero.innerText = "0";
+            zero.style.justifyContent = "center";
+            zero.style.alignItems = "center";
+            zero.style.backgroundColor = "#db65d3";
+            row6.appendChild(zero);
+            zero.onclick = function(){
+              var value0 = document.createTextNode("0");
+              row1.appendChild(value0);
+            }
+
+            let dZero = document.createElement("div");
+            dZero.style.width = "125px";
+            dZero.style.height = "78px";
+            dZero.style.display = "flex";
+            dZero.style.margin = "1px";
+            dZero.innerText = "00";
+            dZero.style.justifyContent = "center";
+            dZero.style.alignItems = "center";
+            dZero.style.backgroundColor = "#db65d3";
+            row6.appendChild(dZero);
+            dZero.onclick = function(){
+              var valued0 = document.createTextNode("00");
+              row1.appendChild(valued0);
+            }
+
+            let equal = document.createElement("div");
+            equal.style.width = "252px";
+            equal.style.height = "78px";
+            equal.style.display = "flex";
+            equal.style.margin = "1px";
+            equal.innerText = "=";
+            equal.style.justifyContent = "center";
+            equal.style.alignItems = "center";
+            equal.style.backgroundColor = "#db65d3";
+            row6.appendChild(equal);
+            equal.onclick = function(){
+              let br = document.createElement("br");
+              let result = eval(row1.innerText);
+              var valRes = document.createTextNode(result);
+              row1.appendChild(br);
+              row1.appendChild(valRes);
+            }
+
+        </script>
+    </body>
+    </html>
+            
